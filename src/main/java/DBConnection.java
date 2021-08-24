@@ -17,8 +17,7 @@ public class DBConnection {
                 connection = DriverManager.getConnection(
                         "jdbc:mysql://localhost:3306/" + dbName + "?createDatabaseIfNotExist=true" +
                                 "&user=" + dbUser + "&password=" + dbPass);
-                connection.createStatement().execute("DROP TABLE IF EXISTS " + tableName);
-                connection.createStatement().execute("CREATE TABLE " + tableName + "(" +
+                connection.createStatement().execute("CREATE TABLE IF NOT EXISTS " + tableName + "(" +
                         "id INT NOT NULL AUTO_INCREMENT, " +
                         "fielda TEXT NULL, " +
                         "fieldb TEXT NULL, " +
